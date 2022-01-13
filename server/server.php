@@ -10,14 +10,14 @@ require_once __DIR__  . '/vendor/autoload.php';
 
 $app = AppFactory::create();
 
-MercadoPago\SDK::setAccessToken($_ENV["MERCADO_PAGO_SAMPLE_ACCESS_TOKEN"]);
+MercadoPago\SDK::setAccessToken('TEST-8075527113271054-47b0d26467ea6131cf3b7b6f801bc51e-179754472');
 
 // serve html
 $app->get('/', function (Request $request, Response $response, $args) {
     $loader = new FilesystemLoader(__DIR__ . '/../client');
     $twig = new Environment($loader);
 
-    $response->getBody()->write($twig->render('index.html', ['public_key' => $_ENV["MERCADO_PAGO_SAMPLE_PUBLIC_KEY"]]));
+    $response->getBody()->write($twig->render('index.html', ['public_key' => 'Test-f3c6b3e1-4c9e-47ed-8957-a3468c292986']));
     return $response;
 });
 
